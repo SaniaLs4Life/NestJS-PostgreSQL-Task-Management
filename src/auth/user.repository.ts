@@ -18,7 +18,7 @@ export class UserRepository extends Repository<User> {
     try {
       await user.save();
     } catch (err) {
-      if (err.code === '23505') { // Duplicate username error code
+      if (err.code === '23505') { // Duplicate username error code.
         throw new ConflictException('Username already exists');
       } else {
         throw new InternalServerErrorException(err.code);
