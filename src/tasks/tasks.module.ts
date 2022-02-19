@@ -4,10 +4,11 @@ import { AuthModule } from 'src/auth/auth.module';
 import { TaskRepository } from './task.repository';
 import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
+import { TaskGateway } from './task.gateway';
 
 @Module({
   imports: [TypeOrmModule.forFeature([TaskRepository]), AuthModule],
   controllers: [TasksController],
-  providers: [TasksService],
+  providers: [TasksService, TaskGateway],
 })
 export class TasksModule {}
